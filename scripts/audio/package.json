@@ -1,0 +1,9 @@
+{
+  "name": "devonix-audio-generator",
+  "private": true,
+  "type": "module",
+  "description": "สร้างไฟล์เสียงประโยคด้วย Kokoro TTS (รันบนเครื่องเท่านั้น ไม่ได้ใช้ตอน build เว็บ)",
+  "dependencies": {
+    "kokoro-js": "1.2.1"
+  }
+}
