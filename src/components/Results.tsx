@@ -122,6 +122,7 @@ function LineChart({ title, points, max, unit }: { title: string; points: Point[
 
 function TestTable({ tests }: { tests: TestResult[] }) {
   return (
+    <div className="table-wrap">
     <table className="table">
       <thead>
         <tr>
@@ -144,5 +145,6 @@ function TestTable({ tests }: { tests: TestResult[] }) {
         ))}
       </tbody>
     </table>
+    </div>
   );
 }

@@ -40,10 +40,13 @@ body {
   line-height: 1.5;
 }
 
-button { font: inherit; color: inherit; cursor: pointer; }
+button { font: inherit; color: inherit; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 button:disabled { opacity: 0.45; cursor: not-allowed; }
 
-.app { max-width: 720px; margin: 0 auto; padding: 16px 16px 48px; }
+.app {
+  max-width: 720px; margin: 0 auto;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
 
 .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
 .brand { background: none; border: 0; padding: 0; font-size: 1.25rem; font-weight: 700; }
@@ -80,7 +83,7 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
 .practice-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
 .link-btn { background: none; border: 0; padding: 0; color: var(--primary); font-weight: 600; }
 
-.dots { display: flex; gap: 8px; justify-content: center; margin: 20px 0; }
+.dots { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; }
 .dot {
   width: 12px; height: 12px; border-radius: 50%; padding: 0;
   border: 2px solid var(--border); background: var(--surface);
@@ -186,6 +189,7 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
 .chart g:focus { outline: none; }
 .chart g:focus .dot-mark { stroke: var(--text); }
 .chart .tip-label { fill: var(--text); font-size: 11px; font-weight: 600; }
+.table-wrap { overflow-x: auto; }
 .table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .table th, .table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
 .table th { color: var(--muted); font-weight: 600; }
@@ -193,4 +197,31 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
 @media (max-width: 480px) {
   .stats.three { grid-template-columns: 1fr 1fr; }
   .stats.three .stat:last-child { grid-column: span 2; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .top { margin-bottom: 16px; }
+  .stats { gap: 8px; margin-bottom: 20px; }
+  .stat { padding: 12px; }
+  .stat-value { font-size: 1.3rem; }
+  .stat-label { font-size: 0.8rem; }
+  /* บทเรียน 2 คอลัมน์บนมือถือ */
+  .lesson-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .lesson-card { padding: 12px; }
+  .lesson-emoji { font-size: 1.5rem; }
+  .lesson-title { font-size: 0.98rem; }
+  .action-grid { grid-template-columns: 1fr; gap: 10px; margin-bottom: 20px; }
+  .action-card { flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 10px; padding: 12px 14px; }
+  .action-card .lesson-sub { flex-basis: 100%; margin: 0; }
+  .card { padding: 20px 16px; border-radius: 16px; }
+  .actions { width: 100%; }
+  .actions .btn { flex: 1; }
+  .nav .btn { padding: 12px 16px; }
+  .btn.big { width: 100%; }
+  /* จุดใหญ่ขึ้นให้นิ้วกดง่าย */
+  .dot { width: 16px; height: 16px; }
+  .dots { gap: 10px; margin: 14px 0; }
+  .big-number { font-size: 1.5rem; }
+  .table th, .table td { padding: 6px 4px; font-size: 0.82rem; }
 }
